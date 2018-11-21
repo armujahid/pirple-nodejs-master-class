@@ -2,14 +2,20 @@
 const handlers = {};
 
 // Ping handler
-handlers.ping = function (data, callback) {
+handlers.getPing = function (data, callback) {
   callback(200);
 };
 
-// Hello handler
-handlers.hello = function (data, callback) {
+// Hello handlers
+handlers.getHello = function (data, callback) {
   callback(200, {
     message: 'Hello from Abdul Rauf'
+  });
+};
+
+handlers.postHello = function (data, callback) {
+  callback(200, {
+    message: `Hello from Abdul Rauf. Posted data is ${data.payload}`
   });
 };
 

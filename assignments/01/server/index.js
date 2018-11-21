@@ -16,7 +16,7 @@ const unifiedServer = function(req,res){
   const queryStringObject = parsedUrl.query;
 
   // Get the HTTP method
-  const method = req.method.toLowerCase();
+  const method = req.method;
 
   //Get the headers as an object
   const headers = req.headers;
@@ -27,7 +27,9 @@ const unifiedServer = function(req,res){
 
   // Not-Found handler (Defined here to remove dependency of server on router/handlers)
   const notFoundHandler = function (data, callback) {
-    callback(404);
+    callback(404, {
+      message: 'Not found'
+    });
   };
 
   req.on('data', (data) => {
@@ -35,9 +37,6 @@ const unifiedServer = function(req,res){
   });
   req.on('end', () => {
     buffer += decoder.end();
-
-    // Check the router for a matching path for a handler. If one is not found, use the notFound handler instead.
-    const chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : notFoundHandler;
 
     // Construct the data object to send to the handler
     const data = {
@@ -47,6 +46,12 @@ const unifiedServer = function(req,res){
       'headers' : headers,
       'payload' : buffer
     };
+
+    // Find route for a matching path and method. If one is not found, use the notFound handler instead.
+    const route = router.find(p => p.path === trimmedPath && p.method === data.method) || { handler: notFoundHandler};
+
+    // extract handler from selected route
+    const chosenHandler = route.handler;
 
     // Route the request to the handler specified in the router
     chosenHandler(data,(statusCode,payload) => {
