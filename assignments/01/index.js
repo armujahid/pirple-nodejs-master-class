@@ -10,6 +10,8 @@ const config = require('./config');
 const httpsServerOptions = require('./https');
 const unifiedServer = require('./server');
 
+console.log(`Starting ${config.envName} environment...`);
+
 // Instantiate the HTTP server
 const httpServer = http.createServer((req,res) => {
   unifiedServer(req,res);
