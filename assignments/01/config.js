@@ -3,8 +3,6 @@
  *
  */
 
-/* global process */
-
 // Container for all environments
 const environments = {};
 
