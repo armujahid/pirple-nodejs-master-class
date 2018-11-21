@@ -40,10 +40,10 @@ const unifiedServer = function(req,res){
 
     // Construct the data object to send to the handler
     const data = {
-      trimmedPath : trimmedPath,
-      queryStringObject : queryStringObject,
-      method : method,
-      headers : headers,
+      trimmedPath,
+      queryStringObject,
+      method,
+      headers,
       payload : buffer
     };
 
