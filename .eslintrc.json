@@ -28,6 +28,7 @@
         "no-console":"off",
         "no-var":"warn",
         "prefer-const":"warn",
-        "prefer-arrow-callback":"warn"
+        "prefer-arrow-callback":"warn",
+        "prefer-template":"warn"
     }
 }

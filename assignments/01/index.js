@@ -17,7 +17,7 @@ const httpServer = http.createServer((req,res) => {
 
 // Start the HTTP server
 httpServer.listen(config.httpPort,() => {
-  console.log('The HTTP server is running on port '+config.httpPort);
+  console.log(`The HTTP server is running on port ${config.httpPort}`);
 });
 
 // Instantiate the HTTPS server
@@ -27,7 +27,7 @@ const httpsServer = https.createServer(httpsServerOptions,(req,res) => {
 
 // Start the HTTPS server
 httpsServer.listen(config.httpsPort,() => {
-  console.log('The HTTPS server is running on port '+config.httpsPort);
+  console.log(`The HTTPS server is running on port ${config.httpsPort}`);
 });
 
 
