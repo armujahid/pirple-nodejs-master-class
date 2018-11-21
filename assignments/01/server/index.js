@@ -40,11 +40,11 @@ const unifiedServer = function(req,res){
 
     // Construct the data object to send to the handler
     const data = {
-      'trimmedPath' : trimmedPath,
-      'queryStringObject' : queryStringObject,
-      'method' : method,
-      'headers' : headers,
-      'payload' : buffer
+      trimmedPath : trimmedPath,
+      queryStringObject : queryStringObject,
+      method : method,
+      headers : headers,
+      payload : buffer
     };
 
     // Find route for a matching path and method. If one is not found, use the notFound handler instead.

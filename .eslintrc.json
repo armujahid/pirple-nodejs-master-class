@@ -29,6 +29,7 @@
         "no-var":"warn",
         "prefer-const":"warn",
         "prefer-arrow-callback":"warn",
-        "prefer-template":"warn"
+        "prefer-template":"warn",
+        "quote-props": ["warn", "as-needed"]
     }
 }
