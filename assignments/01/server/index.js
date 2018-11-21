@@ -25,7 +25,7 @@ const unifiedServer = function(req,res){
   const decoder = new StringDecoder('utf-8');
   let buffer = '';
 
-  // Not-Found handler
+  // Not-Found handler (Defined here to remove dependency of server on router/handlers)
   const notFoundHandler = function (data, callback) {
     callback(404);
   };
